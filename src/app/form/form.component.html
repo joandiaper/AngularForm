@@ -1,0 +1,61 @@
+<div class="background">
+    <div class="text-center mb-3 fs-4 fw-bold">
+        Please, complete this form to sign up
+    </div>
+<form [formGroup]="MyNewForm" (ngSubmit)="Clic(MyNewForm.value)" (ngSubmit)="resetForm()" class="mx-auto w-50"><!--[FormGroup]="MyNewForm"--> <!--(ngSubmit)="addProduct()" -->
+    <div class="input-group mb-2">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Name</span>
+        </div>
+        <input type="text" class="form-control" id="first_name" name="first_name" minlength="2" maxlength="20" formControlName="nombre" #it1><br><!--[(ngModel)]="datos[i].nombre"--><!--[class.is-invalid]="nombre.invalid" [class.is-valid]="nombre.valid"-->
+    </div>
+    <div *ngIf="nombre.invalid" class="alert alert-danger mt-1 p-1">Invalid name</div>
+    <!--The name is obligatory (2-20 characters)-->
+
+    <div class="input-group mb-2">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Surname</span>
+        </div>
+        <input type="text" class="form-control" id="last_name" name="last_name" formControlName="apellido1" #it2><br><!--[(ngModel)]="datos[i].apellido1""-->
+    </div>
+
+    <div *ngIf="apellido1.invalid"
+        class="alert alert-danger mt-1 p-1">The surname is obligatory (2-20 characters)</div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Email</span>
+        </div>
+        <input type="email" class="form-control" id="email" name="email" formControlName="email" #it4 required email><br><!--[(ngModel)]="datos[i].email""-->
+    </div>
+    <div *ngIf="email.invalid" class="alert alert-danger mt-1 p-1">The email format is incorrect (Example: name@mail.com)</div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Age</span>
+        </div>
+        <input type="number" class="form-control" id="edad" name="edad" formControlName="edad" #it5><br><!--[(ngModel)]="datos[i].fnacimiento"-->
+    </div>
+    <div *ngIf="edad.invalid" class="alert alert-danger mt-1 p-1">The age is obligatory</div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Quota</span>
+        </div>
+        <input type="number" class="form-control" id="quota" name="quota" formControlName="quota" #it5><br><!--[(ngModel)]="datos[i].fnacimiento"-->
+    </div>
+    <div *ngIf="quota.invalid" class="alert alert-danger mt-1 p-1">The quota is obligatory</div>
+
+    <div class="text-center">
+        <button class="btn btn-success" type="submit" [disabled]="MyNewForm.invalid">Send</button><!--(click)="enviarDatos()" -->
+    </div>
+
+    <div id="info">
+
+    </div>
+
+</form>
+<div class="backgroundUnder">
+.
+</div>
+</div>
